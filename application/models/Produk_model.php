@@ -2,7 +2,7 @@
 
 class Produk_model extends CI_Model
 {
-    private $_table = "produk";
+    private $_table = "produks";
 
     public $produk_id;
     public $nama;
@@ -40,10 +40,11 @@ class Produk_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->produk_id = uniqid();
+        $this->produk_id = "";
         $this->nama = $post["nama"];
         $this->harga = $post["harga"];
         $this->deskripsi = $post["deskripsi"];
+        // $data_input= array("nama"=>$this->input->post('nama'),"harga" =>$this->input->post('harga'), "deskripsi"=>$this->input->post('deskripsi') );
         $this->db->insert($this->_table, $this);
     }
 
